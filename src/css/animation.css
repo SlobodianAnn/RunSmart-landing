@@ -1,0 +1,25 @@
+@keyframes cardSlide {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -250px;
+        opacity: 1;
+        z-index: 100;
+    }
+}
+
+@keyframes cardSlideBack {
+    0% {
+        right: 0;
+        opacity: 1;
+        z-index: 100;
+    }
+    90% {
+        right: -500px;
+    }
+    100% {
+        opacity: 0;
+        z-index: -100;
+    }
+}
