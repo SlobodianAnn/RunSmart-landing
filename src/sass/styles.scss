@@ -81,6 +81,8 @@ $section-title-color: #0d0d0d;
 .container {
     max-width: 950px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 15px;
 }
 .header{
     display: flex;
@@ -193,7 +195,6 @@ $section-title-color: #0d0d0d;
     }
 }
 .formaSection{
-    min-height: 680px;
     padding: 100px 15px 112px 15px;
     background: url('../img/bg2.jpg') center (center/cover) no-repeat;
 
@@ -293,8 +294,8 @@ $section-title-color: #0d0d0d;
         justify-content: space-around;
     }
     &__card {
-        width: 300px;
-        height: 440px;
+        max-width: 300px;
+        width: 100%;
         padding: 20px;
         border: 2px solid #e8e8e8;
         background-color: #ffffff;
@@ -458,6 +459,11 @@ $section-title-color: #0d0d0d;
         left: 50%;
         transform: translateX(-50%);
         padding-top: 50px;
+        @media screen and (max-width: 600px) {
+            & {
+              position: static;
+              transform: none;
+            margin: 0 auto; } }
     }
     &__icons{
         display: flex;
