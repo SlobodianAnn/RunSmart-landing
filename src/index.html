@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/glide.core.min.css">
+    <!--<link rel="stylesheet" href="css/glide.theme.min.css">-->
 </head>
 <script src="https://kit.fontawesome.com/dede6bab1c.js" crossorigin="anonymous"></script>
 
@@ -25,7 +27,7 @@
                 </div>
                 <div class="header__contacts">
                     <a class="header__phone" href="tel:+74999228974">+7 (499) 922-89-74</a>
-                    <button data-modal="consult" class="button button-call">
+                    <button  class="button button-call modal-consult">
                         заказать звонок
                     </button>
                 </div>
@@ -44,7 +46,7 @@
                         <p>Ответим </br> на все вопросы</p>
                     </div>
                 </div>
-                <button data-modal="consult" class=" button button-consult">заказать консультацию</button>
+                <button  class=" button button-consult modal-consult">заказать консультацию</button>
                 <p class="promo__catalog-link">или <a href="#">перейти в каталог</a></p>
             </div>
         </div>
@@ -95,6 +97,27 @@
     </section>
     <section class="sliderSection">
         <div class="container">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="slider__item">
+                    <img src="img/watch1.png" alt="watches">
+                </li>
+                <li class=" slider__item">
+                    <img src="img/watch2.png" alt="watches">
+                </li>
+                <li class=" slider__item">
+                    <img src="img/watch3.png" alt="watches">
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="icons/chevron-left-solid.png" alt=""></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="icons/chevron-right-solid.png" alt=""></button>
+              </div>
+          </div>
+        </div>
+        <!--<div class="container">
             <div class="slider-wrapper">
                 <div class="slider__item">
                     <img src="img/watch1.png" alt="watches">
@@ -107,7 +130,7 @@
                 </div>
 
             </div>
-        </div>
+        </div>-->
     </section>
     <section class="catalogSection">
         <div class="container">
@@ -137,7 +160,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -163,7 +186,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -189,7 +212,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -215,7 +238,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -241,7 +264,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -267,7 +290,7 @@
                                 <p class="card-old-price">4 750 руб.</p>
                                 <p class="card-new-price">4 500 руб.</p>
                             </div>
-                            <button data-modal="modal-order" class="catalogSection__card-button button">Купить</button>
+                            <button class="catalogSection__card-button button modal-order">Купить</button>
                         </div>
                     </div>
                     <div class="catalogSection__back-block block-hide ">
@@ -356,8 +379,8 @@
         </div>  
     </footer>
 
-    <div class="modal-wrapper">
-        <div class="modal-window" id="modal-consult">
+    <div class="modal-wrapper modal-wrapper-hide">
+        <div class="modal-window modal-hide" id="modal-consult">
             <div class="modal__close">&times;</div>
             <div class="modal__subtitle">Просто заполните форму заявки </div>
             <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
@@ -368,7 +391,7 @@
                 <button class="button button-consult">Заказать консультацию</button>
             </form>
         </div>
-        <div class="modal-window" id="modal-order">
+        <div class="modal-window modal-hide" id="modal-order">
             <div class="modal__close">&times;</div>
             <div class="modal__subtitle">Ваш заказ:</div>
             <div class="modal__descr">Пульсометр Polar FT2</div>
@@ -376,10 +399,10 @@
                 <input class="formaSection__input" type="text" name="name" placeholder="Ваше имя" required>
                 <input class="formaSection__input" type="tel" name="phone" placeholder="Ваш телефон" required>
                 <input class="formaSection__input" type="email" name="email" placeholder="Ваш E-mail" required>
-                <button data-modal="modal-order" class="button button-consult">Купить</button>
+                <button  class="button button-consult modal-order">Купить</button>
             </form>
         </div>
-        <div class="modal-window" id="modal-thanks">
+        <div class="modal-window modal-hide" id="modal-thanks">
             <div class="modal__close">&times;</div>
             <div class="modal__subtitle">Спасибо за вашу заявку!</div>
             <div class="modal__descr">Наш менеджер свяжется с вами в ближайшее время!</div>
@@ -388,7 +411,8 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="./js/slick.min.js"></script>
+    <!--<script src="./js/slick.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="./js/javascript.js"></script>
 </body>
 

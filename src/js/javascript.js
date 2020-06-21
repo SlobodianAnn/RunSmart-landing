@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $('.slider-wrapper').slick({
         speed: 1200,
         prevArrow: '<img class="sliderSection__nav-button left-arrow" src="../icons/chevron-left-solid.png">',
@@ -9,7 +9,9 @@ $(document).ready(function () {
             }
           ]
     });
-});
+});*/
+
+new Glide('.glide').mount();
 
 //--------Catalog cards -------/
 
@@ -37,25 +39,45 @@ buttonBack.forEach((item, i) => {
     });
 });
 
-//--------Modal windows -------/
+//-------- Modal windows -------/
 
-$('[data-modal=consult]').on('click', function(){
-    $('.modal-wrapper, #modal-consult').fadeIn();
+let buttonBuy = catalogSection.querySelectorAll('.modal-order');
+let buttonConsult = document.querySelectorAll('.modal-consult');
+let modalWrapper = document.querySelector('.modal-wrapper');
+let modalOrder = document.querySelector('#modal-order');
+let modalConsult = document.querySelector('#modal-consult');
+let modalCloseButton = document.querySelectorAll('.modal__close');
+console.log(modalCloseButton)
+
+
+buttonConsult.forEach(function(button, i){
+    button.addEventListener('click', function(){
+        modalWrapper.classList.remove('modal-wrapper-hide');
+        modalWrapper.classList.add('modal-wrapper-show');
+        modalConsult.classList.remove('modal-hide');
+        console.log('consult is working')
+    })
 });
 
-$('.modal__close').on('click', function(){
-    $('.modal-wrapper, #modal-consult, #modal-order').fadeOut('slow');
+buttonBuy.forEach(function(button, i){
+    button.addEventListener('click', function(){
+        modalWrapper.classList.remove('modal-wrapper-hide');
+        modalWrapper.classList.add('modal-wrapper-show');
+        modalOrder.classList.remove('modal-hide');
+    })
 });
 
-$('[data-modal=modal-order]').on('click', function(){
-    $('.modal-wrapper, #modal-order').fadeIn();
-});
-
-$('[data-modal=modal-order]').each(function(i){
-    $(this).on('click', function(){
-        $('#modal-order .modal__descr').text($('.catalogSection__card-title').eq(i).text());
+modalCloseButton.forEach(function(button, i){
+    button.addEventListener('click', function(){
+        closeModal();
     })
 })
+
+function closeModal (modalWindow){
+    modalWrapper.classList.remove('modal-wrapper-show');
+    modalWrapper.classList.add('modal-wrapper-hide');
+}
+
 
 
 
