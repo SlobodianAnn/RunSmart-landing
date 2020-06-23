@@ -1,17 +1,22 @@
-/*$(document).ready(function () {
-    $('.slider-wrapper').slick({
-        speed: 1200,
-        prevArrow: '<img class="sliderSection__nav-button left-arrow" src="../icons/chevron-left-solid.png">',
-        nextArrow: '<img class="sliderSection__nav-button right-arrow" src="../icons/chevron-right-solid.png">',
-        responsive: [
-            {
-              breakpoint: 768,
-            }
-          ]
-    });
-});*/
 
-new Glide('.glide').mount();
+const config = {
+    type: 'carousel',
+    startAt: 0,
+    peek: {
+        before: 50,
+        after: 0
+    },
+    breakpoints: {
+        600: {
+            peek: {
+                before: 0,
+                after: 0
+            }
+        }
+      } 
+} 
+
+new Glide('.glide', config).mount();
 
 //--------Catalog cards -------/
 
@@ -49,7 +54,6 @@ let modalConsult = document.querySelector('#modal-consult');
 let modalCloseButton = document.querySelectorAll('.modal__close');
 console.log(modalCloseButton)
 
-
 buttonConsult.forEach(function(button, i){
     button.addEventListener('click', function(){
         modalWrapper.classList.remove('modal-wrapper-hide');
@@ -69,13 +73,22 @@ buttonBuy.forEach(function(button, i){
 
 modalCloseButton.forEach(function(button, i){
     button.addEventListener('click', function(){
-        closeModal();
+        closeModal(modalConsult);
+        switch(true){
+            case !modalConsult.classList.contains('modal-hide'): 
+            closeModal(modalConsult);
+            break;
+            case !modalOrder.classList.contains('modal-hide'): 
+            closeModal(modalOrder);
+            break;
+        }
     })
 })
 
 function closeModal (modalWindow){
     modalWrapper.classList.remove('modal-wrapper-show');
     modalWrapper.classList.add('modal-wrapper-hide');
+    modalWindow.classList.add('modal-hide');
 }
 
 
