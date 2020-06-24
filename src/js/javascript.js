@@ -31,7 +31,6 @@ buttonMore.forEach((item, i ) => {
         faceBlock[i].classList.add('block-hide');
         backBlock[i].classList.add('block-active');
         backBlock[i].classList.remove('block-hide');
-        console.log('click');
     });
 });
 
@@ -39,8 +38,7 @@ buttonBack.forEach((item, i) => {
     item.addEventListener('click', () => {
         backBlock[i].classList.add('hide');
         backBlock[i].classList.remove('block-active');
-        faceBlock[i].classList.remove('block-hide');
-        
+        faceBlock[i].classList.remove('block-hide');  
     });
 });
 
@@ -52,19 +50,22 @@ let modalWrapper = document.querySelector('.modal-wrapper');
 let modalOrder = document.querySelector('#modal-order');
 let modalConsult = document.querySelector('#modal-consult');
 let modalCloseButton = document.querySelectorAll('.modal__close');
-console.log(modalCloseButton)
+let cardTitles = document.querySelectorAll('.catalogSection__card-title');
+let modalTitle = document.querySelector('.descr-buy')
+
 
 buttonConsult.forEach(function(button, i){
     button.addEventListener('click', function(){
         modalWrapper.classList.remove('modal-wrapper-hide');
         modalWrapper.classList.add('modal-wrapper-show');
         modalConsult.classList.remove('modal-hide');
-        console.log('consult is working')
     })
 });
 
 buttonBuy.forEach(function(button, i){
     button.addEventListener('click', function(){
+        let cardTitle = cardTitles[i];
+        modalTitle.textContent = cardTitle.textContent;
         modalWrapper.classList.remove('modal-wrapper-hide');
         modalWrapper.classList.add('modal-wrapper-show');
         modalOrder.classList.remove('modal-hide');
